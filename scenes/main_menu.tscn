@@ -1,0 +1,352 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7fxo17p3w3o2"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_eriuw"]
+[ext_resource type="Texture2D" uid="uid://ujn3v0x6hjtc" path="res://assets/sprites/GUI sprites/backgrounds/woodbg.jpg" id="2_4rqhg"]
+[ext_resource type="Texture2D" uid="uid://dn1d0r6nsmxlp" path="res://assets/sprites/GUI sprites/backgrounds/Lakebg.png" id="2_ilhu6"]
+[ext_resource type="Texture2D" uid="uid://dwc5osba7qjp2" path="res://assets/sprites/GUI sprites/Buttons/Play_button.png" id="3_yhk2y"]
+[ext_resource type="AudioStream" uid="uid://ch2ly3viuq5y6" path="res://assets/sounds/music/menumusic.mp3" id="11_7h05j"]
+[ext_resource type="AudioStream" uid="uid://0xxc68lejwkr" path="res://assets/sounds/sfx/button sfx.wav" id="12_6l1b8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfvli"]
+atlas = ExtResource("3_yhk2y")
+region = Rect2(33, 31, 70, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8tac"]
+atlas = ExtResource("3_yhk2y")
+region = Rect2(193, 33, 70, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wljp"]
+atlas = ExtResource("3_yhk2y")
+region = Rect2(113, 32, 70, 31)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_eriuw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ilhu6")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MainButtons" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -95.5
+offset_right = 63.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtonsBg" type="TextureRect" parent="MainButtons"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4rqhg")
+expand_mode = 1
+
+[node name="MainButtons" type="VBoxContainer" parent="MainButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="MainButtons/MainButtons"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_sfvli")
+texture_pressed = SubResource("AtlasTexture_t8tac")
+texture_hover = SubResource("AtlasTexture_2wljp")
+
+[node name="Settings" type="Button" parent="MainButtons/MainButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MainButtons/MainButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MainButtons/MainButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit"
+
+[node name="Settings" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -95.0
+offset_right = 78.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsBg" type="TextureRect" parent="Settings"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4rqhg")
+expand_mode = 1
+
+[node name="SettingsButtons" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="GridContainer" type="GridContainer" parent="Settings/SettingsButtons"]
+layout_mode = 2
+
+[node name="AudioSettings" type="Button" parent="Settings/SettingsButtons/GridContainer"]
+layout_mode = 2
+text = "Audio Settings"
+
+[node name="VideoSettings" type="Button" parent="Settings/SettingsButtons/GridContainer"]
+layout_mode = 2
+text = "Video Settings"
+
+[node name="SettingsBack" type="Button" parent="Settings/SettingsButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="PlayOptions" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_top = 0.378086
+anchor_right = 0.5625
+anchor_bottom = 0.623457
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayOptionsBg" type="TextureRect" parent="PlayOptions"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+texture = ExtResource("2_4rqhg")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="PlayOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/v_separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayOptions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="NewGame" type="Button" parent="PlayOptions/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="PlayOptions/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Load Game
+"
+
+[node name="PlayBack" type="Button" parent="PlayOptions/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="AudioSettings" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.383681
+anchor_top = 0.375
+anchor_right = 0.618056
+anchor_bottom = 0.625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsBg" type="TextureRect" parent="AudioSettings"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4rqhg")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="AudioSettings"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = -20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AudioSliders" type="VBoxContainer" parent="AudioSettings/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="AudioSettings/MarginContainer/AudioSliders"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Music" type="Label" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Sfx" type="Label" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+text = "Sfx"
+
+[node name="SfxSlider" type="HSlider" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Master" type="Label" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="AudioSettings/MarginContainer/AudioSliders/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="AudioBack" type="Button" parent="AudioSettings/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="VideoSettings" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439236
+anchor_top = 0.375
+anchor_right = 0.560764
+anchor_bottom = 0.625
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsBg" type="TextureRect" parent="VideoSettings"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_4rqhg")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VideoSettings"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = -50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="VideoSettings/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/v_separation = 40
+
+[node name="VideoButtons" type="VBoxContainer" parent="VideoSettings/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckButton" parent="VideoSettings/MarginContainer/GridContainer/VideoButtons"]
+layout_mode = 2
+text = " Fullscreen"
+
+[node name="Resolution" type="HBoxContainer" parent="VideoSettings/MarginContainer/GridContainer/VideoButtons"]
+layout_mode = 2
+
+[node name="ResolutionText" type="Label" parent="VideoSettings/MarginContainer/GridContainer/VideoButtons/Resolution"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="VideoSettings/MarginContainer/GridContainer/VideoButtons/Resolution"]
+layout_mode = 2
+
+[node name="VideoBack" type="Button" parent="VideoSettings/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7h05j")
+autoplay = true
+bus = &"Music"
+
+[node name="ButtonSfx" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("12_6l1b8")
+bus = &"Sfx"
+
+[connection signal="pressed" from="MainButtons/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButtons/MainButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainButtons/MainButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings/SettingsButtons/GridContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
+[connection signal="pressed" from="Settings/SettingsButtons/GridContainer/VideoSettings" to="." method="_on_video_settings_pressed"]
+[connection signal="pressed" from="Settings/SettingsButtons/SettingsBack" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="PlayOptions/GridContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="PlayOptions/GridContainer/PlayBack" to="." method="_on_play_back_pressed"]
+[connection signal="value_changed" from="AudioSettings/MarginContainer/AudioSliders/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="AudioSettings/MarginContainer/AudioSliders/GridContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="AudioSettings/MarginContainer/AudioSliders/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="AudioSettings/MarginContainer/AudioBack" to="." method="_on_audio_back_pressed"]
+[connection signal="toggled" from="VideoSettings/MarginContainer/GridContainer/VideoButtons/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="item_selected" from="VideoSettings/MarginContainer/GridContainer/VideoButtons/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="pressed" from="VideoSettings/MarginContainer/VideoBack" to="." method="_on_video_back_pressed"]

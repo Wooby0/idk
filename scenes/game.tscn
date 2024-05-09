@@ -1,0 +1,172 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvxvi2f73nb6v"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_pwnxs"]
+[ext_resource type="Texture2D" uid="uid://cm2itpnmn2rcm" path="res://assets/sprites/GUI sprites/backgrounds/GameBackground1.png" id="2_lj350"]
+[ext_resource type="Texture2D" uid="uid://clk0r1f7tufp2" path="res://assets/sprites/GUI sprites/backgrounds/DarkModeBg.png" id="3_egu6s"]
+[ext_resource type="Texture2D" uid="uid://ujn3v0x6hjtc" path="res://assets/sprites/GUI sprites/backgrounds/woodbg.jpg" id="4_fsran"]
+[ext_resource type="Texture2D" uid="uid://wpxy1hkk6xol" path="res://assets/sprites/GUI sprites/Border.png" id="4_hc3jv"]
+[ext_resource type="Texture2D" uid="uid://0l71eksnsqdc" path="res://assets/sprites/GUI sprites/Buttons/Quit1.png" id="5_v5yp4"]
+[ext_resource type="Texture2D" uid="uid://dvgmkw40i6l1l" path="res://assets/sprites/GUI sprites/Buttons/Quit2.png" id="6_exsmq"]
+[ext_resource type="Texture2D" uid="uid://cs3iybfb0crhp" path="res://assets/sprites/GUI sprites/Buttons/Quit3.png" id="7_tvhb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34jst"]
+atlas = ExtResource("5_v5yp4")
+region = Rect2(3.75081, 2.79085, 36.715, 14.8644)
+
+[sub_resource type="Animation" id="Animation_ytfju"]
+resource_name = "QuitPressed"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuitButton:texture_normal:atlas")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_exsmq"), ExtResource("7_tvhb1"), ExtResource("6_exsmq"), ExtResource("5_v5yp4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuitButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1009.93, 589.943), Vector2(1009.93, 586.943), Vector2(1009.93, 589.943), Vector2(1012.93, 589.943)]
+}
+
+[sub_resource type="Animation" id="Animation_2ulhs"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v18ug"]
+_data = {
+"QuitPressed": SubResource("Animation_ytfju"),
+"RESET": SubResource("Animation_2ulhs")
+}
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwnxs")
+metadata/_edit_use_anchors_ = true
+
+[node name="LightModeBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lj350")
+metadata/_edit_use_anchors_ = true
+
+[node name="DarkModeBg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_egu6s")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.14032
+offset_bottom = 0.14032
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hc3jv")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.881883
+anchor_top = 0.915036
+anchor_right = 0.973897
+anchor_bottom = 0.978308
+offset_left = -2.99945
+offset_top = -3.00006
+offset_right = -2.99951
+offset_bottom = -3.00006
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_34jst")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitScreen" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -96.0
+offset_right = 172.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="QuitScreen"]
+layout_mode = 2
+texture = ExtResource("4_fsran")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="QuitScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/v_separation = 20
+
+[node name="Label" type="Label" parent="QuitScreen/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Are you sure you want to quit?
+(All unsaved progress will be lost)"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitScreen/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MenuQuit" type="Button" parent="QuitScreen/GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[node name="DesktopQuit" type="Button" parent="QuitScreen/GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="QuitBack" type="Button" parent="QuitScreen/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v18ug")
+}
+speed_scale = 1.3
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitScreen/GridContainer/HBoxContainer/MenuQuit" to="." method="_on_menu_quit_pressed"]
+[connection signal="pressed" from="QuitScreen/GridContainer/HBoxContainer/DesktopQuit" to="." method="_on_desktop_quit_pressed"]
+[connection signal="pressed" from="QuitScreen/GridContainer/QuitBack" to="." method="_on_quit_back_pressed"]
