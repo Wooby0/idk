@@ -30,7 +30,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("QuitButton:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -40,9 +40,33 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(1009.93, 589.943), Vector2(1009.93, 586.943), Vector2(1009.93, 589.943), Vector2(1012.93, 589.943)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuitButton:texture_normal:margin")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(-1, 0, 0, 0), Rect2(-1, -1, 0, 0), Rect2(-1, 0, 0, 0), Rect2(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_2ulhs"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuitButton:texture_normal:margin")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v18ug"]
 _data = {
@@ -95,14 +119,14 @@ texture = ExtResource("4_hc3jv")
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.881883
-anchor_top = 0.915036
-anchor_right = 0.973897
-anchor_bottom = 0.978308
-offset_left = -2.99945
-offset_top = -3.00006
-offset_right = -2.99951
-offset_bottom = -3.00006
+anchor_left = 0.879
+anchor_top = 0.91
+anchor_right = 0.971
+anchor_bottom = 0.974
+offset_left = 0.321838
+offset_top = 0.262939
+offset_right = 0.337769
+offset_bottom = -0.208801
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = SubResource("AtlasTexture_34jst")
